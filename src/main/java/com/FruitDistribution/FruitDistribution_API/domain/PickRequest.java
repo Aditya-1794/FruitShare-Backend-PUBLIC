@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import org.hibernate.annotations.UuidGenerator;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT) //only maps to JSON what is not the default
+@Table(name = "PickRequest")
 public class PickRequest {
     @Id
     @UuidGenerator

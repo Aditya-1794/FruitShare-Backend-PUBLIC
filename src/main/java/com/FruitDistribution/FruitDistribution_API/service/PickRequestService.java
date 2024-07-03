@@ -20,10 +20,6 @@ public class PickRequestService {
         return repository.findAll();
     }
 
-    public PickRequest getPickRequestById(String id) {
-        return repository.findByID(id).orElseThrow(() -> new RuntimeException("Contact not found"));
-    }
-
     public PickRequest createNewPickRequest(PickRequest req) {
         return repository.save(req);
     }

@@ -13,4 +13,6 @@ public class PickRequest {
     private String scheduledDate;
     private String scheduledTime;
     private String address; //maybe split later
+    private String fruitType;
+    private String imageURL;
 }

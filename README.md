@@ -1,0 +1,3 @@
+Hi there! We are two high schooler with a unique idea to improve our community. Throughout our lives, we have noticed that many homeowners have fruit trees thats produces high volumes of fruit that either go unpicked or fall to the ground and go bad. Our solution to this issue is [website name]; with out free service, homeowners with a surpluss of fruits can register to have their fruit picked and keep a portion for themselves. The rest is donated to charity (villageharvest.org) and put to good use. Our goal is to take fresh, tasty fruit that would otherwise get wasted and give it to communities that need it.
+
+Please contact us if you are interested in getting your fruits picked **for free** :apple:

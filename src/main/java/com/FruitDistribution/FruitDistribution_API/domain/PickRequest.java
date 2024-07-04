@@ -1,7 +1,6 @@
 package com.FruitDistribution.FruitDistribution_API.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.UuidGenerator;
 //BE DESCRIPTIVE
 @Entity
@@ -19,7 +17,7 @@ import org.hibernate.annotations.UuidGenerator;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT) //only maps to JSON what is not the default
-@Table(name = "PickRequest")
+@Table(name = "PickRequestTable")
 public class PickRequest {
     @Id
     @UuidGenerator

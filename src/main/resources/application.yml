@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 9090
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/Fruit Distribution App
+    url: jdbc:postgresql://localhost:5432/FruitDistributionApp
     username: ayaanjha
     password:
   jpa:

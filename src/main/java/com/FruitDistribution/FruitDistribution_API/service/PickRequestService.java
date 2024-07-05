@@ -27,6 +27,11 @@ public class PickRequestService {
         repository.deleteById(id);
     }
 
+    public List<PickRequest> deleteAllRequests() {
+        repository.deleteAll();
+        return repository.findAll();
+    }
+
     public List<PickRequest> getFinished() {
         List<PickRequest> allRequests = repository.findAll();
         List<PickRequest> returnList = null;
@@ -54,17 +59,17 @@ public class PickRequestService {
     public PickRequest getRequestsFromId(String id) {
         Optional<PickRequest> req = repository.findById(id);
         return req.orElse(null);
+    }
 
-
-//
-//        List<PickRequest> reqs = repository.findAll();
-//        for(PickRequest req : reqs) {
-//            if(req.getId() == id) {
-//                return req;
-//            }
-//        }
-//
-//        return null;
-//
+    public PickRequest updateRequestsStatus(String id, Boolean status) {
+        Optional<PickRequest> req = repository.findById(id);
+        if(req.isPresent()) {
+            PickRequest newReq = req.get();
+            newReq.setCompleted(status);
+            return repository.save(newReq);
+        }
+        else {
+            throw new RuntimeException("Pick request not found with id: " + id);
+        }
     }
 }

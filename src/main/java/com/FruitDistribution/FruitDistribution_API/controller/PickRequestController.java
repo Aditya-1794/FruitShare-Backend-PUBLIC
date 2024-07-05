@@ -33,6 +33,11 @@ public class PickRequestController {
         service.deletePickRequest(id);
     }
 
+    @DeleteMapping("deleteAllRequests")
+    public List<PickRequest> deleteAllRequests() {
+        return service.deleteAllRequests();
+    }
+
     //these 2 aren't working
     @GetMapping("getFinishedRequests")
     public List<PickRequest> getFinished() {
@@ -42,5 +47,10 @@ public class PickRequestController {
     @GetMapping("getUnfinishedRequests")
     public List<PickRequest> getUnfinished() {
         return service.getUnfinished();
+    }
+
+    @PutMapping("/updateStatus/{id}")
+    public PickRequest updateRequestsStatus(@PathVariable String id, @RequestBody Boolean status) {
+        return service.updateRequestsStatus(id, status);
     }
 }

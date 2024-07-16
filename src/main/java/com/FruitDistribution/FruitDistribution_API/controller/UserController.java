@@ -3,10 +3,7 @@ package com.FruitDistribution.FruitDistribution_API.controller;
 import com.FruitDistribution.FruitDistribution_API.domain.User;
 import com.FruitDistribution.FruitDistribution_API.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +18,23 @@ public class UserController {
         return service.getAllUsers();
     }
 
-    @GetMapping("/findUserById/{id}")
-    public User findUserById(@PathVariable String id) {
-        return service.findUserById(id);
+    @GetMapping("/findUserById/{userId}")
+    public User findUserById(@PathVariable String userId) {
+        return service.findUserById(userId);
+    }
+
+    @PostMapping("/addNewUser")
+    public User addNewUser(@RequestBody User req) {
+        return service.addNewUser(req);
+    }
+
+    @DeleteMapping("deleteUser/{userId}")
+    public void deleteUser(@PathVariable User u) {
+        service.deleteUser(u);
+    }
+
+    @DeleteMapping("deleteAllUsers")
+    public void deleteAllUsers() {
+        service.deleteAllUsers();
     }
 }

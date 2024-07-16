@@ -19,10 +19,10 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User findUserById(String id) {
+    public User findUserById(String userId) {
         List<User> all = repository.findAll();
         for(User u : all) {
-            if(Objects.equals(u.getId(), id)) {
+            if(Objects.equals(u.getUserId(), userId)) {
                 return u;
             }
         }
@@ -32,5 +32,13 @@ public class UserService {
 
     public User addNewUser(User u) {
         return repository.save(u);
+    }
+
+    public void deleteUser(User U) {
+        repository.delete(U);
+    }
+
+    public void deleteAllUsers() {
+        repository.deleteAll();
     }
 }

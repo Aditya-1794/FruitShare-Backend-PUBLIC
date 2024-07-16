@@ -44,14 +44,14 @@ public class PickRequestController {
     }
 
     //these 2 aren't working
-    @GetMapping("getFinishedRequests")
-    public List<PickRequest> getFinished() {
-        return service.getFinished();
+    @GetMapping("getFinishedRequests/{userId}")
+    public List<PickRequest> getFinished(@PathVariable String userId) {
+        return service.getFinished(userId);
     }
 
-    @GetMapping("getUnfinishedRequests")
-    public List<PickRequest> getUnfinished() {
-        return service.getUnfinished();
+    @GetMapping("getUnfinishedRequests/{userId}")
+    public List<PickRequest> getUnfinished(@PathVariable String userId) {
+        return service.getUnfinished(userId);
     }
 
     @PutMapping("/updateStatus/{id}")

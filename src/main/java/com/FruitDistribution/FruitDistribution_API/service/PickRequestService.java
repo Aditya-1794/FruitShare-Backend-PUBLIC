@@ -32,10 +32,16 @@ public class PickRequestService {
         return repository.findAll();
     }
 
-    public List<PickRequest> getFinished() {
+    public List<PickRequest> getFinished(String userId) {
         List<PickRequest> allRequests = repository.findAll();
-        List<PickRequest> returnList = null;
+        List<PickRequest> userReqs = null;
         for(PickRequest req : allRequests) {
+            if(req.getUserId() == userId) {
+                userReqs.add(req);
+            }
+        }
+        List<PickRequest> returnList = null;
+        for(PickRequest req : userReqs) {
             if(req.isCompleted()) {
                 returnList.add(req);
             }
@@ -44,11 +50,17 @@ public class PickRequestService {
         return returnList;
     }
 
-    public List<PickRequest> getUnfinished() {
+    public List<PickRequest> getUnfinished(String userId) {
         List<PickRequest> allRequests = repository.findAll();
+        List<PickRequest> userReqs = null;
+        for(PickRequest req : allRequests) {
+            if(req.getUserId() == userId) {
+                userReqs.add(req);
+            }
+        }
         List<PickRequest> returnList = null;
-        for (PickRequest req : allRequests) {
-            if (!req.isCompleted()) {
+        for(PickRequest req : userReqs) {
+            if(!req.isCompleted()) {
                 returnList.add(req);
             }
         }

@@ -19,7 +19,11 @@ import org.hibernate.annotations.UuidGenerator;
 @JsonInclude(JsonInclude.Include.NON_DEFAULT) //only maps to JSON what is not the default
 @Table(name = "UserTable")
 public class User {
+    @Id
+    @UuidGenerator
+    @Column(name="id", unique = true, updatable = false)
     private String id;
+    private String userId;
     private String username;
     private String pfpUrl;
 }

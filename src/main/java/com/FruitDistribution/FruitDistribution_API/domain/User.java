@@ -10,27 +10,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
-//BE DESCRIPTIVE
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_DEFAULT) //only maps to JSON what is not the default
-@Table(name = "PickRequestTable")
-public class PickRequest {
-    @Id
-    @UuidGenerator
-    @Column(name="id", unique = true, updatable = false)
+@Table(name = "UserTable")
+public class User {
     private String id;
-    private String userId;
-    private String homeownerName;
-    private String postDate;
-    private String postTime; //change to built-in time feature
-    private String scheduledDate;
-    private String scheduledTime;
-    private String address; //maybe split later
-    private String fruitType;
-    private String imageURL;
-    private boolean isCompleted;
+    private String username;
+    private String pfpUrl;
 }

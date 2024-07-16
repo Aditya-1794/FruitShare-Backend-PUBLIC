@@ -61,6 +61,18 @@ public class PickRequestService {
         return req.orElse(null);
     }
 
+    public List<PickRequest> getUserRequests(String userId) {
+        List<PickRequest> allreqs = repository.findAll();
+        List<PickRequest> goodreqs = null;
+        for(PickRequest req : allreqs) {
+            if(req.getUserId() == userId) {
+                goodreqs.add(req);
+            }
+        }
+
+        return goodreqs;
+    }
+
     public PickRequest updateRequestsStatus(String id, Boolean status) {
         Optional<PickRequest> req = repository.findById(id);
         if(req.isPresent()) {

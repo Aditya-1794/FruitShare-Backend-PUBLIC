@@ -18,9 +18,9 @@ public class PickRequestController {
         return service.getRequestsFromId(id);
     }
 
-    @GetMapping("/getUserRequests/{userId}")
+    @GetMapping("getUserRequests/{userId}")
     public List<PickRequest> getUserRequests(@PathVariable String userId) {
-        return getUserRequests(userId);
+        return service.getUsersRequests(userId);
     }
 
     @GetMapping("getAllPickRequests")

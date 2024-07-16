@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,15 +33,29 @@ public class PickRequestService {
         return repository.findAll();
     }
 
+    public List<PickRequest> getUsersRequests(String userId) {
+        List<PickRequest> all = repository.findAll();
+        List<PickRequest> good = new ArrayList<>();
+
+        for(PickRequest req : all) {
+            if(userId.equals(req.getUserId())) {
+                good.add(req);
+            }
+        }
+
+        return good;
+    }
+
     public List<PickRequest> getFinished(String userId) {
         List<PickRequest> allRequests = repository.findAll();
-        List<PickRequest> userReqs = null;
+        List<PickRequest> userReqs = new ArrayList<>();
+
         for(PickRequest req : allRequests) {
-            if(req.getUserId() == userId) {
+            if(!(userId.equals(req.getUserId()))) {
                 userReqs.add(req);
             }
         }
-        List<PickRequest> returnList = null;
+        List<PickRequest> returnList = new ArrayList<>();
         for(PickRequest req : userReqs) {
             if(req.isCompleted()) {
                 returnList.add(req);
@@ -52,15 +67,17 @@ public class PickRequestService {
 
     public List<PickRequest> getUnfinished(String userId) {
         List<PickRequest> allRequests = repository.findAll();
-        List<PickRequest> userReqs = null;
-        for(PickRequest req : allRequests) {
-            if(req.getUserId() == userId) {
+        List<PickRequest> userReqs = new ArrayList<>();
+
+        for (PickRequest req : allRequests) {
+            if (userId.equals(req.getUserId())) {
                 userReqs.add(req);
             }
         }
-        List<PickRequest> returnList = null;
-        for(PickRequest req : userReqs) {
-            if(!req.isCompleted()) {
+
+        List<PickRequest> returnList = new ArrayList<>();
+        for (PickRequest req : userReqs) {
+            if (!req.isCompleted()) {
                 returnList.add(req);
             }
         }
@@ -71,18 +88,6 @@ public class PickRequestService {
     public PickRequest getRequestsFromId(String id) {
         Optional<PickRequest> req = repository.findById(id);
         return req.orElse(null);
-    }
-
-    public List<PickRequest> getUserRequests(String userId) {
-        List<PickRequest> allreqs = repository.findAll();
-        List<PickRequest> goodreqs = null;
-        for(PickRequest req : allreqs) {
-            if(req.getUserId() == userId) {
-                goodreqs.add(req);
-            }
-        }
-
-        return goodreqs;
     }
 
     public PickRequest updateRequestsStatus(String id, Boolean status) {

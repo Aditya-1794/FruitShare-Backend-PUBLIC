@@ -19,10 +19,10 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User findUserById(String userId) {
+    public User findUserById(String id) {
         List<User> all = repository.findAll();
         for(User u : all) {
-            if(Objects.equals(u.getUserId(), userId)) {
+            if(Objects.equals(u.getId(), id)) {
                 return u;
             }
         }

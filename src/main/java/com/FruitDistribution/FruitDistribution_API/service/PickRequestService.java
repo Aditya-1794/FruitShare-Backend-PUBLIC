@@ -38,7 +38,7 @@ public class PickRequestService {
         List<PickRequest> good = new ArrayList<>();
 
         for(PickRequest req : all) {
-            if(userId.equals(req.getId())) {
+            if(userId.equals(req.getUserId())) {
                 good.add(req);
             }
         }
@@ -51,7 +51,7 @@ public class PickRequestService {
         List<PickRequest> userReqs = new ArrayList<>();
 
         for(PickRequest req : allRequests) {
-            if(!(userId.equals(req.getId()))) {
+            if(!(userId.equals(req.getUserId()))) {
                 userReqs.add(req);
             }
         }
@@ -70,7 +70,7 @@ public class PickRequestService {
         List<PickRequest> userReqs = new ArrayList<>();
 
         for (PickRequest req : allRequests) {
-            if (userId.equals(req.getId())) {
+            if (userId.equals(req.getUserId())) {
                 userReqs.add(req);
             }
         }

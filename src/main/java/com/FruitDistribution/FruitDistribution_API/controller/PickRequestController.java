@@ -58,4 +58,8 @@ public class PickRequestController {
     public PickRequest updateRequestsStatus(@PathVariable String id, @RequestBody Boolean status) {
         return service.updateRequestsStatus(id, status);
     }
+    @GetMapping("/getRequestsFromUserId/{id}")
+    public List<PickRequest> getRequestsFromUserId(@PathVariable String id) {
+        return service.getUsersRequests(id);
+    }
 }

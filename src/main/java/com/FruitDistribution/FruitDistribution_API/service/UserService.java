@@ -19,10 +19,31 @@ public class UserService {
         return repository.findAll();
     }
 
+    public Boolean checkForUser(String email) {
+        List<User> all = repository.findAll();
+        for(User user : all) {
+            if(user.getEmail() != null && user.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public User findUserById(String id) {
         List<User> all = repository.findAll();
         for(User u : all) {
             if(Objects.equals(u.getId(), id)) {
+                return u;
+            }
+        }
+
+        return null;
+    }
+
+    public User findUserByEmail(String email) {
+        List<User> all = repository.findAll();
+        for(User u : all) {
+            if(Objects.equals(u.getEmail(), email)) {
                 return u;
             }
         }

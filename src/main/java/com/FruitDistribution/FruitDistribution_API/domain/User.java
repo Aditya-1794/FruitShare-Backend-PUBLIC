@@ -23,5 +23,5 @@ public class User {
     @UuidGenerator
     @Column(name="id", unique = true, updatable = false)
     private String id;
-    private String username;
+    private String email;
 }

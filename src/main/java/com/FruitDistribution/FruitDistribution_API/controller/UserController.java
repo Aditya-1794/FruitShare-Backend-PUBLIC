@@ -18,9 +18,19 @@ public class UserController {
         return service.getAllUsers();
     }
 
+    @GetMapping("/checkForUser/{email}")
+    public Boolean checkForUser(@PathVariable String email) {
+        return service.checkForUser(email);
+    }
+
     @GetMapping("/findUserById/{userId}")
     public User findUserById(@PathVariable String userId) {
         return service.findUserById(userId);
+    }
+
+    @GetMapping("/findUserByEmail/{email}")
+    public User findUserByEmail(@PathVariable String email) {
+        return service.findUserByEmail(email);
     }
 
     @PostMapping("/addNewUser")

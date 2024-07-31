@@ -26,11 +26,9 @@ public class PickRequest {
     private String userId;
     private String homeownerName;
     private String postDate;
-    private String postTime; //change to built-in time feature
+    private String postTime;
     private String scheduledDate;
     private String scheduledTime;
-    private String address; //maybe split later
-    private String fruitType;
-    private String imageURL;
+    private String address;
     private boolean isCompleted;
 }

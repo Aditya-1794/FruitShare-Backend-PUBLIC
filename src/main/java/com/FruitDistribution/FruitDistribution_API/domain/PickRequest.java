@@ -30,5 +30,6 @@ public class PickRequest {
     private String scheduledDate;
     private String scheduledTime;
     private String address;
+    private String additionalInfo;
     private boolean isCompleted;
 }
